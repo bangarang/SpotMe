@@ -7,14 +7,13 @@ SessionUtils::checkSessionExpired();
 
 if(isset($_SESSION['loggedin']) && $_SESSION['loggedin'])
 {
-    header("location:pages/loggedin.php");
+    header("location:pages/home.php");
 }
 ?>
 <html>
     <head></head>
     <body>
         <div id="fb-root"></div>
-
         <script>
             window.fbAsyncInit = function() {
                 FB.init({
@@ -32,7 +31,7 @@ if(isset($_SESSION['loggedin']) && $_SESSION['loggedin'])
                     if (response.status === 'connected')
                     {
                         <?php $_SESSION['loggedin'] = true;?>
-                        window.location.replace("pages/loggedin.php");
+                        window.location.replace("pages/home.php");
                        
                     } else if (response.status === 'not_authorized') {
                         // In this case, the person is logged into Facebook, but not into the app, so we call
@@ -65,21 +64,8 @@ if(isset($_SESSION['loggedin']) && $_SESSION['loggedin'])
                 js.async = true;
                 js.src = "//connect.facebook.net/en_US/all.js";
                 ref.parentNode.insertBefore(js, ref);
-            }(document));
-
-            // Here we run a very simple test of the Graph API after login is successful. 
-            // This testAPI() function is only called in those cases. 
-            function testAPI() {
-                console.log('Welcome!  Fetching your information.... ');
-                FB.api('/me', function(response) {
-                    console.log('Good to see you, ' + response.name + '.');
-                });
-            }
+            }(document))
         </script>
-
-        <!--
-          Below we include the Login Button social plugin. This button uses the JavaScript SDK to
-          present a graphical Login button that triggers the FB.login() function when clicked. -->
 
     <fb:login-button show-faces="true" width="200" max-rows="1"></fb:login-button>
 </body>

@@ -18,6 +18,6 @@
         const EVENEMENT_TABLE = "demg22038801.spot_evenement";
         const PARTICIPATION_TABLE = "demg22038801.spot_participation";
         const USER_PERMISSIONS_TABLE = "demg22038801.spot_droit_utilisateur";
-        const USER_TABLE = "demg22038801.spot_utilisateur";
+        const USER_TABLE = "demg22038801.spot_utilisateur";                
     }
 ?>
